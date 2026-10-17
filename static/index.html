@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c2b">
+  <title>LocalBiz AI — Marketing, made simpler</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">L</span><span>LocalBiz <b>AI</b></span></a>
+      <p class="side-label">WORKSPACE</p>
+      <button class="nav-item active" id="nav-create"><span>✳</span> Create content</button>
+      <button class="nav-item" id="nav-history"><span>◷</span> Content history</button>
+      <div class="sidebar-bottom">
+        <div class="privacy-card"><span class="privacy-icon">◉</span><div><strong>Local-first by design</strong><p>Use a local model to keep prompts on your machine.</p></div></div>
+        <p class="tiny">Built for the people behind small businesses.</p>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">YOUR EVERYDAY MARKETING PARTNER</span><h1 id="page-title">Make your next post easier.</h1></div><div class="status-pill"><span class="status-dot" id="status-dot"></span><span id="status-text">Checking AI mode…</span></div></header>
+      <section id="create-view">
+        <div class="intro"><div><h2>What are we promoting today?</h2><p>Share a few details. Get ready-to-edit copy for your business.</p></div><span class="sparkle">✳</span></div>
+        <form id="generate-form">
+          <div class="form-grid">
+            <label class="field full"><span>Business name</span><input id="business_name" maxlength="100" value="My Business" placeholder="e.g. Sharma Clothing Store"></label>
+            <label class="field full"><span>Product or service <i>Required</i></span><input id="product" required minlength="2" maxlength="160" placeholder="e.g. Cotton kurta, home bakery, bike repair"></label>
+            <label class="field"><span>Price (optional)</span><input id="price" maxlength="40" placeholder="e.g. ₹799"></label>
+            <label class="field"><span>Target audience</span><input id="audience" maxlength="160" value="local customers" placeholder="e.g. college students"></label>
+            <label class="field"><span>Language</span><select id="language"><option>Hinglish</option><option>Hindi</option><option>English</option></select></label>
+            <label class="field"><span>Platform</span><select id="platform"><option>Instagram</option><option>WhatsApp</option><option>Online store</option><option>Facebook</option></select></label>
+            <label class="field"><span>Tone</span><select id="tone"><option>Friendly</option><option>Professional</option><option>Playful</option><option>Premium</option></select></label>
+            <label class="field full"><span>Extra details (optional)</span><textarea id="details" maxlength="500" rows="3" placeholder="Real product details, ingredients, location, or features. Avoid sharing private customer information."></textarea><small>We won't invent claims from details you haven't supplied.</small></label>
+          </div>
+          <div class="form-footer"><span class="hint">Usually takes a few seconds with a local model.</span><button class="primary-btn" id="generate-btn" type="submit"><span>✳</span> Generate content <span>↗</span></button></div>
+        </form>
+        <div id="error-box" class="error-box hidden" role="alert"></div>
+        <section id="results" class="results hidden">
+          <div class="results-heading"><div><span class="eyebrow">YOUR CONTENT KIT</span><h2>Ready for your review.</h2></div><span class="mode-tag" id="result-mode"></span></div>
+          <div class="result-grid">
+            <article class="result-card"><div class="card-top"><span class="card-icon green">◎</span><span class="card-label">INSTAGRAM CAPTION</span><button class="copy-btn" data-copy="instagram_caption">Copy ↗</button></div><p id="out-instagram_caption"></p></article>
+            <article class="result-card"><div class="card-top"><span class="card-icon blue">✉</span><span class="card-label">WHATSAPP MESSAGE</span><button class="copy-btn" data-copy="whatsapp_message">Copy ↗</button></div><p id="out-whatsapp_message"></p></article>
+            <article class="result-card"><div class="card-top"><span class="card-icon ochre">▤</span><span class="card-label">PRODUCT DESCRIPTION</span><button class="copy-btn" data-copy="product_description">Copy ↗</button></div><p id="out-product_description"></p></article>
+            <article class="result-card"><div class="card-top"><span class="card-icon purple">#</span><span class="card-label">HASHTAGS</span><button class="copy-btn" data-copy="hashtags">Copy ↗</button></div><p id="out-hashtags"></p></article>
+            <article class="result-card cta-card"><div><span class="card-label">CALL TO ACTION</span><p id="out-call_to_action"></p></div><button class="copy-btn" data-copy="call_to_action">Copy ↗</button></article>
+          </div>
+          <div class="disclaimer">Review every claim, price, and detail before publishing. AI-generated content can be inaccurate.</div>
+        </section>
+      </section>
+      <section id="history-view" class="hidden">
+        <div class="intro"><div><h2>Your content library</h2><p>Previous generations are stored in a local SQLite database.</p></div><button id="refresh-history" class="secondary-btn">Refresh ↻</button></div>
+        <div id="history-list" class="history-list"></div>
+      </section>
+      <footer><span>LOCALBIZ AI <span class="footer-dot">•</span> OPEN-WEIGHT AI, PRACTICAL OUTPUT</span><span>Made for small business owners</span></footer>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
